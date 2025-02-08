@@ -1,14 +1,18 @@
 import click
+from deploy.logger import get_logger
+
+# Initialize the logger
+logger = get_logger()
 
 @click.group()
 def cli():
     """Deploy CLI - Open-Source AI Implementation Toolkit"""
-    click.echo("Welcome to Deploy!")
+    logger.info("Deploy CLI initialized.")
 
 @click.command()
 def hello():
     """Print a Hello message"""
-    click.echo("Hello, Deploy user!")
+    logger.info("Hello, Deploy user!")
 
 cli.add_command(hello)
 
