@@ -1,0 +1,50 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+env/
+venv/
+poetry.lock
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Log files and system files
+*.log
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+.DS_Store
+Thumbs.db
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing and coverage
+.tox/
+.nox/
+.coverage
+coverage.xml
+htmlcov/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Poetry specific files
+poetry.lock
+.cache/
+pip-wheel-metadata/
+
+# Pytest and temp files
+.pytest_cache/
+tmp/
