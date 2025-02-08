@@ -1,17 +1,16 @@
 import os
 from loguru import logger
+from deploy.config import Config
+
+# Load configuration
+config = Config()
+LOG_LEVEL = config.get("logging", "log_level", "INFO").upper()
+LOG_FILE = config.get("logging", "log_file", "logs/deploy.log")
 
 # Ensure the logs directory exists
-LOG_DIR = "logs"
-os.makedirs(LOG_DIR, exist_ok=True)
+os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
 
-# Define log file path
-LOG_FILE = os.path.join(LOG_DIR, "deploy.log")
-
-# Get log level from environment variables (default: INFO)
-LOG_LEVEL = os.getenv("DEPLOY_LOG_LEVEL", "INFO").upper()
-
-# Remove any existing log handlers before adding new ones
+# Remove any existing log handlers
 logger.remove()
 
 # Add console logging
@@ -30,9 +29,9 @@ logger.add(
     LOG_FILE,
     format="{time:YYYY-MM-DD HH:mm:ss} | {level: <8} | {name}:{function}:{line} - {message}",
     level=LOG_LEVEL,
-    rotation="10 MB",  # Rotate logs every 10MB
-    compression="zip",  # Compress old logs
-    retention="30 days"  # Keep logs for 30 days
+    rotation="10 MB",
+    compression="zip",
+    retention="30 days"
 )
 
 def get_logger():

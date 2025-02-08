@@ -1,0 +1,17 @@
+[general]
+app_name = "Deploy"
+version = "0.1.0"
+
+[logging]
+log_level = "INFO"
+log_file = "logs/deploy.log"
+
+[api]
+host = "127.0.0.1"
+port = 8000
+
+[training]
+epochs = 10
+batch_size = 32
+learning_rate = 0.001
+use_gpu = true
